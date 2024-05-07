@@ -1,5 +1,7 @@
 ﻿using Veterinaria.Modelo;
 using Veterinaria.Vista;
+using Veterinaria.Presentador.Comun;
+using System.Windows.Forms;
 
 namespace Veterinaria.Presentador
 {
@@ -27,6 +29,7 @@ namespace Veterinaria.Presentador
             this.vista.DeleteEvent += DeleteEvent;
             this.vista.EditEvent += EditEvent;
             this.vista.SaveEvent += SaveEvent;
+            this.vista.CancelEvent += CancelAction;
 
             //Seteo el binding source
             this.vista.SetPetListBindingSource(this.mascotasBindingSource);
@@ -58,22 +61,76 @@ namespace Veterinaria.Presentador
 
         private void AddNewEvent(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            vista.IsEdit = false;
+        }
+
+
+        private void CancelAction(object? sender, EventArgs e)
+        {
+            CleanviewFields();
         }
 
         private void DeleteEvent(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var pet = (ModeloMascota)mascotasBindingSource.Current;
+                repositorio.Delete(pet.Id);
+                vista.IsSuccessful = true;
+                vista.Message = "Mascota borrada satisfactoriamente";
+                CargarTodoListaMascotas();
+            }
+            catch (Exception ex){
+                vista.IsSuccessful = false;
+                vista.Message = "Hubo un error, no se pudo borrar";
+            }
+
         }
 
         private void EditEvent(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var pet = (ModeloMascota)mascotasBindingSource.Current;
+            //vista. = pet.Id.ToString();
+            vista.MascotaNombre = pet.Nombre;
+            vista.MascotaTipo = pet.Tipo;
+            vista.MascotaColor = pet.Color;
+            vista.IsEdit = true;
+        }
+
+        private void CleanviewFields()
+        {
+   
+            vista.MascotaNombre = "";
+            vista.MascotaTipo = "";
+            vista.MascotaColor = "";
         }
 
         private void SaveEvent(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var model = new ModeloMascota();
+            model.Nombre = vista.MascotaNombre;
+            model.Tipo = vista.MascotaTipo;
+            model.Color = vista.MascotaColor;
+            try{
+                new Comun.ModelDataValidation().Validate(model);
+                if (vista.IsEdit)
+                {
+                    repositorio.Edit(model);
+                    vista.Message = "Mascota editada satisfactoriamente";
+                } else
+                {
+                    repositorio.Add(model);
+                    vista.Message = "Mascota agregada satisfactoriamente";
+                }
+                vista.IsSuccessful = true;
+                CargarTodoListaMascotas();
+                CleanviewFields();
+
+            } catch (Exception ex)
+            {
+                vista.IsSuccessful= false;
+                vista.Message= ex.Message;
+            }
         }
 
 

@@ -34,16 +34,21 @@ namespace Veterinaria.Vista
             };
 
 
-            btnEditar.Click += delegate {
+            btnEditar.Click += delegate
+            {
                 EditEvent?.Invoke(this, EventArgs.Empty);
                 tabPetList.TabPages.Remove(tabPage1);
                 tabPetList.TabPages.Add(tabPage2);
-                tabPage2.Text = "Agregar nueva mascota";
+                tabPage2.Text = "Edit pet";
             };
 
             btnEliminar.Click += delegate { 
-                DeleteEvent?.Invoke(this, EventArgs.Empty);
-                MessageBox("Estas seguro que queres borrar esta mascota?", "Warning", MessageBoxButtons.YesNo);
+                var resultado = MessageBox.Show("Estas seguro que queres borrar esta mascota?", "Warning", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
             };
 
             btnGuardar.Click += delegate { 
@@ -64,7 +69,7 @@ namespace Veterinaria.Vista
 
         //Properties
         //public string MascotaId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string MascotaColor { get => this.txtColor.Text; set => this.txtNombre.Text = value; }
+        public string MascotaColor { get => this.txtColor.Text; set => this.txtColor.Text = value; }
         public string MascotaTipo { get => this.txtTipo.Text; set => this.txtTipo.Text = value; }
         public string MascotaNombre { get => this.txtNombre.Text; set => this.txtNombre.Text = value; }
         public string ValorBusqueda { get => this.txtBuscar.Text; set => this.txtBuscar.Text = value; }
@@ -105,7 +110,7 @@ namespace Veterinaria.Vista
                 instancia.FormBorderStyle = FormBorderStyle.None;
                 instancia.Dock = DockStyle.Fill;
             }
-                
+               
                 
             else
             {
@@ -117,9 +122,6 @@ namespace Veterinaria.Vista
             return instancia;
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
