@@ -58,7 +58,7 @@ namespace Veterinaria._Repositorios
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "update Pet set Nombre = @nombre,Tipo = @tipo,Color = @color where Id_mascotas = @id;)";
+                command.CommandText = "update Pet set Nombre = @nombre,Tipo = @tipo,Color = @color where Id_mascotas = @id;";
                 command.Parameters.Add("@nombre", SqlDbType.NVarChar).Value = modeloMascota.Nombre;
                 command.Parameters.Add("@tipo", SqlDbType.NVarChar).Value = modeloMascota.Tipo;
                 command.Parameters.Add("@color", SqlDbType.NVarChar).Value = modeloMascota.Color;

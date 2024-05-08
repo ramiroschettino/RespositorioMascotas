@@ -68,7 +68,7 @@ namespace Veterinaria.Vista
         }
 
         //Properties
-        //public string MascotaId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Id { get => this.txtId.Text; set => this.txtId.Text = value; }
         public string MascotaColor { get => this.txtColor.Text; set => this.txtColor.Text = value; }
         public string MascotaTipo { get => this.txtTipo.Text; set => this.txtTipo.Text = value; }
         public string MascotaNombre { get => this.txtNombre.Text; set => this.txtNombre.Text = value; }

@@ -90,7 +90,7 @@ namespace Veterinaria.Presentador
         private void EditEvent(object? sender, EventArgs e)
         {
             var pet = (ModeloMascota)mascotasBindingSource.Current;
-            //vista. = pet.Id.ToString();
+            vista.Id = pet.Id.ToString();
             vista.MascotaNombre = pet.Nombre;
             vista.MascotaTipo = pet.Tipo;
             vista.MascotaColor = pet.Color;
@@ -111,6 +111,7 @@ namespace Veterinaria.Presentador
             model.Nombre = vista.MascotaNombre;
             model.Tipo = vista.MascotaTipo;
             model.Color = vista.MascotaColor;
+            model.Id = Int32.Parse(vista.Id);
             try{
                 new Comun.ModelDataValidation().Validate(model);
                 if (vista.IsEdit)

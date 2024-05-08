@@ -49,6 +49,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.labelId = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabPetList.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -185,6 +187,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.labelId);
+            this.tabPage2.Controls.Add(this.txtId);
             this.tabPage2.Controls.Add(this.btnCancelar);
             this.tabPage2.Controls.Add(this.btnGuardar);
             this.tabPage2.Controls.Add(this.txtColor);
@@ -203,7 +207,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(176, 167);
+            this.btnCancelar.Location = new System.Drawing.Point(176, 211);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(99, 39);
             this.btnCancelar.TabIndex = 8;
@@ -212,7 +216,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(29, 167);
+            this.btnGuardar.Location = new System.Drawing.Point(29, 211);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(99, 39);
             this.btnGuardar.TabIndex = 7;
@@ -221,21 +225,21 @@
             // 
             // txtColor
             // 
-            this.txtColor.Location = new System.Drawing.Point(29, 124);
+            this.txtColor.Location = new System.Drawing.Point(29, 167);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(246, 23);
             this.txtColor.TabIndex = 6;
             // 
             // txtTipo
             // 
-            this.txtTipo.Location = new System.Drawing.Point(29, 80);
+            this.txtTipo.Location = new System.Drawing.Point(29, 123);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(246, 23);
             this.txtTipo.TabIndex = 5;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(29, 36);
+            this.txtNombre.Location = new System.Drawing.Point(29, 79);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(246, 23);
             this.txtNombre.TabIndex = 4;
@@ -243,7 +247,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 106);
+            this.label5.Location = new System.Drawing.Point(29, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 15);
             this.label5.TabIndex = 3;
@@ -252,7 +256,7 @@
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(29, 62);
+            this.lblTipo.Location = new System.Drawing.Point(29, 105);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(30, 15);
             this.lblTipo.TabIndex = 2;
@@ -261,11 +265,27 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(29, 18);
+            this.lblNombre.Location = new System.Drawing.Point(29, 61);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(51, 15);
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Nombre";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(29, 35);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(246, 23);
+            this.txtId.TabIndex = 9;
+            // 
+            // labelId
+            // 
+            this.labelId.AutoSize = true;
+            this.labelId.Location = new System.Drawing.Point(29, 17);
+            this.labelId.Name = "labelId";
+            this.labelId.Size = new System.Drawing.Size(17, 15);
+            this.labelId.TabIndex = 10;
+            this.labelId.Text = "Id";
             // 
             // VistaMascota
             // 
@@ -311,5 +331,7 @@
         private Label lblTipo;
         private Label lblNombre;
         private Button btnCerrar;
+        private Label labelId;
+        private TextBox txtId;
     }
 }

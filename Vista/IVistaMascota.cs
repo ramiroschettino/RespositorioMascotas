@@ -1,6 +1,6 @@
 ﻿public interface IVistaMascota
 {
-    //public string MascotaId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public string Id { get; set; }
     string MascotaNombre { get; set; }
     string MascotaTipo { get; set; }
     string MascotaColor { get; set; }
