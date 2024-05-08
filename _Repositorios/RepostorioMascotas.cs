@@ -67,6 +67,7 @@ namespace Veterinaria._Repositorios
                 command.ExecuteNonQuery();
             }
         }
+        //Terminar esto
         public IEnumerable<ModeloMascota> GetAll()
         {
             var listaMascota = new List<ModeloMascota>();
