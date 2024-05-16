@@ -51,7 +51,7 @@ namespace Veterinaria._Repositorios
                 command.ExecuteNonQuery();
             }
         }
-        //commit farm
+        
         public void Edit(ModeloMascota modeloMascota)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -68,7 +68,7 @@ namespace Veterinaria._Repositorios
                 command.ExecuteNonQuery();
             }
         }
-        //Terminar estos
+     //a
         public IEnumerable<ModeloMascota> GetAll()
         {
             var listaMascota = new List<ModeloMascota>();
